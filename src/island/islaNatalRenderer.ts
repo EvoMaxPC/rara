@@ -134,18 +134,48 @@ interface NatalBushSpec {
   berry: boolean;
 }
 
-/** Arbustos de pradera distribuidos en equilibrio simétrico a ambos lados del eje central. */
+/** Arbustos de pradera distribuidos en equilibrio simétrico a ambos lados del eje central,
+ *  en agrupaciones naturales de densidad y tamaño. */
 const NATAL_BUSHES: NatalBushSpec[] = [
+  // Núcleos de pradera (agrupaciones)
   { x: 1018, y: 868, seed: 0.22, berry: true },
   { x: 1334, y: 868, seed: 0.54, berry: true },
   { x: 1016, y: 1106, seed: 0.38, berry: false },
   { x: 1336, y: 1106, seed: 0.76, berry: false },
   { x: 792, y: 952, seed: 0.64, berry: true },
   { x: 1556, y: 952, seed: 0.44, berry: true },
+  // Lomo oeste de la pradera
+  { x: 640, y: 940, seed: 0.33, berry: false },
+  { x: 760, y: 970, seed: 0.47, berry: false },
+  { x: 840, y: 1000, seed: 0.61, berry: true },
+  { x: 1000, y: 1010, seed: 0.72, berry: false },
+  { x: 880, y: 910, seed: 0.55, berry: false },
+  // Lomo este de la pradera
+  { x: 1460, y: 960, seed: 0.39, berry: false },
+  { x: 1540, y: 990, seed: 0.51, berry: true },
+  { x: 1620, y: 1020, seed: 0.68, berry: false },
+  { x: 960, y: 1100, seed: 0.28, berry: false },
+  { x: 1180, y: 1140, seed: 0.44, berry: true },
+  // Borde oeste de la isla
   { x: 552, y: 888, seed: 0.36, berry: false },
+  { x: 480, y: 920, seed: 0.52, berry: false },
+  { x: 620, y: 980, seed: 0.67, berry: true },
+  { x: 420, y: 980, seed: 0.39, berry: false },
+  // Borde este de la isla
   { x: 1796, y: 892, seed: 0.81, berry: false },
-  { x: 1094, y: 748, seed: 0.29, berry: false },
-  { x: 1258, y: 748, seed: 0.71, berry: true },
+  { x: 1840, y: 940, seed: 0.74, berry: true },
+  { x: 1760, y: 980, seed: 0.43, berry: false },
+  { x: 1880, y: 980, seed: 0.58, berry: false },
+  // Árboleda sureste (mínimo para no saturar)
+  { x: 1500, y: 720, seed: 0.26, berry: false },
+  { x: 1750, y: 780, seed: 0.41, berry: false },
+  { x: 1560, y: 830, seed: 0.59, berry: true },
+  { x: 1680, y: 840, seed: 0.77, berry: false },
+  { x: 1840, y: 840, seed: 0.32, berry: false },
+  // Huerta norte / flanco oeste
+  { x: 920, y: 1040, seed: 0.65, berry: false },
+  { x: 1300, y: 1060, seed: 0.79, berry: false },
+  { x: 980, y: 1100, seed: 0.48, berry: false },
 ];
 
 /** Grúas y atrezo de construcción en la meseta noroeste (Highland). */
@@ -162,8 +192,10 @@ const HIGHLAND_CONSTRUCTION_PROPS: { x: number; y: number; type: 'wood_pile' | '
   { x: 742, y: 362, type: 'wood_pile' },
 ];
 
-/** Pequeños arbustos dispersos en puntos clave (cerca de caminos). */
+/** Pequeños arbustos dispersos en puntos clave (cerca de caminos),
+ *  con densidad variable y giros orgánicos. */
 const NATAL_PATH_SIDE_BUSHES: NatalBushSpec[] = [
+  // Senderos de tierra y cruces de la pradera
   { x: 924, y: 786, seed: 0.12, berry: false },
   { x: 1428, y: 792, seed: 0.44, berry: true },
   { x: 1120, y: 1224, seed: 0.82, berry: false },
@@ -171,6 +203,27 @@ const NATAL_PATH_SIDE_BUSHES: NatalBushSpec[] = [
   { x: 1532, y: 1142, seed: 0.67, berry: false },
   { x: 648, y: 846, seed: 0.19, berry: false },
   { x: 1812, y: 852, seed: 0.53, berry: true },
+  // Toreos de los brazos de la pradera
+  { x: 600, y: 860, seed: 0.28, berry: false },
+  { x: 740, y: 890, seed: 0.41, berry: true },
+  { x: 1480, y: 880, seed: 0.55, berry: false },
+  { x: 1610, y: 900, seed: 0.68, berry: false },
+  // Ligera vegetación en los bordes de la huerta
+  { x: 1016, y: 900, seed: 0.33, berry: false },
+  { x: 1290, y: 920, seed: 0.47, berry: false },
+  { x: 1180, y: 980, seed: 0.61, berry: true },
+  { x: 1080, y: 1050, seed: 0.74, berry: false },
+  { x: 1150, y: 1120, seed: 0.52, berry: false },
+  // Pequeños matorrales en la ladera noreste
+  { x: 1560, y: 930, seed: 0.29, berry: false },
+  { x: 1720, y: 960, seed: 0.43, berry: false },
+  { x: 1650, y: 1000, seed: 0.66, berry: true },
+  { x: 1780, y: 1020, seed: 0.58, berry: false },
+  // Zonas de transición oeste/noroeste
+  { x: 580, y: 1080, seed: 0.37, berry: false },
+  { x: 680, y: 1120, seed: 0.49, berry: false },
+  { x: 740, y: 1080, seed: 0.62, berry: true },
+  { x: 700, y: 1150, seed: 0.75, berry: false },
 ];
 
 function hash2(x: number, y: number): number {
